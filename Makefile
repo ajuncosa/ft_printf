@@ -1,4 +1,4 @@
-SRCS	= ft_libft.c
+SRCS	= ft_printf.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -23,9 +23,11 @@ all:		${NAME}
 
 clean:
 			${RM} ${OBJS}
+			make clean -C libft/
 
 fclean:		clean
 			${RM} ${NAME}
+			make fclean -C libft/
 
 re:			fclean
 

@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/13 13:44:28 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/14 16:38:21 by ajuncosa         ###   ########.fr       */
+/*   Created: 2020/02/13 15:45:43 by ajuncosa          #+#    #+#             */
+/*   Updated: 2020/02/14 16:54:01 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include <limits.h>
+#include "libftprintf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+int main()
+{
+	char a = 'l';
+	char str[] = "esto es una cadena";
 
-int		ft_printf(const char *s, ...);
-void	ft_print_c(va_list args);
-void	ft_print_s(va_list args);
-#endif
+	ft_printf("char: %c, string: %s, numbers: %d, %i", a, "caca 2222", 43, -5);
+}
