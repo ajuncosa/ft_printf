@@ -6,51 +6,32 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:05:15 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/19 17:00:48 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/20 17:16:48 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void    ft_print_c(va_list args, t_flags *flags)
+void	ft_print_c(va_list args, t_flags *flags)
 {
-    char    a;
-    int     i;
+	char	a;
 
-    i = 1;
-    a = va_arg(args, int);
-
-	if (flags->zero == 1)
+	a = va_arg(args, int);
+	if (flags->width != -1)
 	{
-		while (i < flags->width)
+		if (flags->dash == 1)
 		{
-			write(1, "0", 1);
-			i++;
+			write(1, &a, 1);
+			flags->printed++;
+			ft_print_filling(flags, 1);
 		}
-
-
-   /* if (flags->width != -1)
-    {
-        if (flags->dash == -1)
-        {
-            while (i < flags->width)
-            {
-                if (flags->zero == -1)
-                    write(1, " ", 1);
-                else
-                    write(1, "0", 1);
-                i++;
-            }
-            write(1, &a, 1);
-        }
-        else
-        {
-            write(1, &a, 1);
-            while (i < flags->width)
-            {
-                write(1, " ", 1);
-                i++;
-            }
-        }
-    }*/
+		else
+		{
+			ft_print_filling(flags, 1);
+			write(1, &a, 1);
+			flags->printed++;
+		}
+	}
+	else
+		write(1, &a, 1);
 }

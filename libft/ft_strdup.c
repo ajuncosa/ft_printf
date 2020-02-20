@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 18:07:17 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/01/17 14:17:30 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:45:22 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strdup(const char *s1)
 	size_t	i;
 	char	*copy;
 
+	if (!s1)
+		return (NULL);
 	if (!(copy = malloc((ft_strlen(s1) + 1))))
 		return (NULL);
 	i = 0;
