@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 15:45:43 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/20 17:09:21 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/25 16:01:17 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 	ft_printf("\n\033[1;31m%25d", 1234);
 	printf("\033[1;32m\n%25d", 1234);*/
 
-	printf("hello, %5s.\n", str);
-	ft_printf("hello, %5s.\n", str);
+	printf("return: %d\n", printf("hello, %.0d|\n", 0));
+	printf("return: %d", ft_printf("hello, %.0d|\n", 0));
 
 }

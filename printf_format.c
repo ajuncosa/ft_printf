@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 10:48:52 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/20 17:54:06 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/25 13:07:34 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ void		ft_identify_flags(va_list args, const char *s, int i,
 	if (s[i] == '*')
 	{
 		flags->width = va_arg(args, int);
+		if (flags->width < 0)
+		{
+			flags->width = -flags->width;
+			flags->dash = 1;
+			flags->zero = -1;
+		}
 		i++;
 	}
 	if (s[i] > '0' && s[i] <= '9')
@@ -75,6 +81,7 @@ void		ft_identify_flags(va_list args, const char *s, int i,
 	if (s[i++] == '.')
 	{
 		flags->precision = 0;
+		flags->zero = -1;
 		if (s[i] == '*')
 			flags->precision = va_arg(args, int);
 		else

@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 13:45:01 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/20 16:05:12 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:26:54 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ int		ft_printf(const char *s, ...)
 			ft_choose_format(args, s[i], &flags);
 		}
 		else
+		{
 			write(1, &s[i], 1);
+			flags.printed++;
+		}
 		i++;
 	}
 	va_end(args);
