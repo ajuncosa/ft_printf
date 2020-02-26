@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 10:32:36 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/25 15:38:46 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/26 12:22:09 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	ft_putnbr_fd_edit(int n, int fd, t_flags *flags)
 	char    c;
 	long    nb;
 
+	if (n == 0 && flags->precision == 0)
+		return ;
 	nb = n;
 	if (nb < 0)
 	{

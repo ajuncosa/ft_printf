@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 15:45:43 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/25 16:01:17 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/26 14:37:37 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int main()
 	printf("\033[1;32m\n\npruebas: \t%ñolo6, %ñ, \", \%, \n char: %c,\nstring: %s,\nnumbers: %d, %i,\npointer address: %p,\nunsigned ints: %u, %u,\nhex minuscula: %x,\nhex mayuscula: %X,\nporcentaje: %%", a, str, INT_MAX, num, ptr, UINT_MAX, -4, 1234, 1234);
 	ft_printf("\n\033[1;31m%25d", 1234);
 	printf("\033[1;32m\n%25d", 1234);*/
-
-	printf("return: %d\n", printf("hello, %.0d|\n", 0));
-	printf("return: %d", ft_printf("hello, %.0d|\n", 0));
+	printf("return: %d\n", printf("hello, %-10d|\n", 12));
+	printf("return: %d", ft_printf("hello, %-10d|\n", 12));
 
 }

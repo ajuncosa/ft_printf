@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 13:44:28 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/20 17:23:29 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:41:23 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ void			ft_reset_flags(t_flags *flags);
 void			ft_identify_flags(va_list args, const char *s,
 		int i, t_flags *flags);
 void			ft_print_filling(t_flags *flags, int len);
+void			ft_putnbr_fd_edit(int n, int fd, t_flags *flags);
+void			ft_putstr_fd_edit(char *s, int fd, t_flags *flags);
 
 #endif
