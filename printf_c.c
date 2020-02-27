@@ -6,17 +6,14 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:05:15 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/25 15:37:06 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/27 17:21:28 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_print_c(va_list args, t_flags *flags)
+void	ft_print_c(int a, t_flags *flags)
 {
-	char	a;
-
-	a = va_arg(args, int);
 	if (flags->width != -1)
 	{
 		if (flags->dash == 1)

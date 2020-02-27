@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 13:44:28 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/25 15:41:23 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/27 17:21:45 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ typedef struct	s_flags
 }				t_flags;
 
 int				ft_printf(const char *s, ...);
-void			ft_print_c(va_list args, t_flags *flags);
+void			ft_print_c(int a, t_flags *flags);
 void			ft_print_s(va_list args, t_flags *flags);
 void			ft_print_d(va_list args, t_flags *flags);
 void			ft_print_p(va_list args, t_flags *flags);
 void			ft_print_u(va_list args, t_flags *flags);
 void			ft_print_x_lower(va_list args, t_flags *flags);
 void			ft_print_x_upper(va_list args, t_flags *flags);
-void			ft_print_hexa(size_t nbr, char whatcase);
+void			ft_print_hexa(size_t nbr, char whatcase, t_flags *flags);
 void			ft_putnbr_unsigned(unsigned int n);
 void			ft_choose_format(va_list args, char a, t_flags *flags);
 void			ft_reset_flags(t_flags *flags);

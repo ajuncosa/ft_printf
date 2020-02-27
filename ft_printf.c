@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 13:45:01 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/25 15:26:54 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/27 12:31:46 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,14 @@ int		ft_printf(const char *s, ...)
 		{
 			ft_reset_flags(&flags);
 			i++;
-			if (s[i] == '-' || (s[i] >= '0' && s[i] <= '9') || s[i] == '.' || s[i] == '*')
+			if (ft_strchr("-0123456789.*", s[i]))
 				ft_identify_flags(args, s, i, &flags);
-			while (s[i] == '-' || (s[i] >= '0' && s[i] <= '9') || s[i] == '.' || s[i] == '*')
+			while (ft_strchr("-0123456789.*", s[i]))
 				i++;
 			ft_choose_format(args, s[i], &flags);
 		}
 		else
-		{
-			write(1, &s[i], 1);
-			flags.printed++;
-		}
+			flags.printed += write(1, &s[i], 1);
 		i++;
 	}
 	va_end(args);

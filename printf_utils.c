@@ -6,18 +6,18 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 10:32:36 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/26 12:22:09 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/27 17:16:23 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_print_hexa(size_t nbr, char whatcase)
+void	ft_print_hexa(size_t nbr, char whatcase, t_flags *flags)
 {
 	char	b;
 
-	if (nbr > 16)
-		ft_print_hexa(nbr / 16, whatcase);
+	if (nbr >= 16)
+		ft_print_hexa(nbr / 16, whatcase, flags);
 	b = nbr % 16;
 	if (b > 9)
 	{
@@ -28,7 +28,7 @@ void	ft_print_hexa(size_t nbr, char whatcase)
 	}
 	else
 		b = b + '0';
-	write(1, &b, 1);
+	flags->printed += write(1, &b, 1);
 }
 
 void	ft_putnbr_unsigned(unsigned int n)
@@ -56,8 +56,8 @@ void	ft_print_filling(t_flags *flags, int len)
 
 void	ft_putnbr_fd_edit(int n, int fd, t_flags *flags)
 {
-	char    c;
-	long    nb;
+	char	c;
+	long	nb;
 
 	if (n == 0 && flags->precision == 0)
 		return ;
