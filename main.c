@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 15:45:43 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/27 17:18:06 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/28 16:24:52 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,16 @@ int main()
 	int num = INT_MIN;
 	int *ptr = &num;
 
-	static char	a01;
-static unsigned char a02;
-static short a03;
-static unsigned short a04;
-static int a05;
-static unsigned int a06;
-static long a07;
-static unsigned long a08;
-static long long a09;
-static unsigned long long a10;
-static char *a11;
-static void *a12;
-
 /*	ft_printf("\033[1;31mpruebas: \t%ñolo6, %ñ, \", \%, \n char: %c,\nstring: %s,\nnumbers: %d, %i,\npointer address: %p,\nunsigned ints: %u, %u,\nhex minuscula: %x,\nhex mayuscula: %X,\nporcentaje: %%", a, str, INT_MAX, num, ptr, UINT_MAX, -4, 1234, 1234);
 	ft_printf("\033[1;30m\n\n**********ORIGINAL*********");
 	printf("\033[1;32m\n\npruebas: \t%ñolo6, %ñ, \", \%, \n char: %c,\nstring: %s,\nnumbers: %d, %i,\npointer address: %p,\nunsigned ints: %u, %u,\nhex minuscula: %x,\nhex mayuscula: %X,\nporcentaje: %%", a, str, INT_MAX, num, ptr, UINT_MAX, -4, 1234, 1234);
 	ft_printf("\n\033[1;31m%25d", 1234);
 	printf("\033[1;32m\n%25d", 1234);*/
-	printf("return: %d\n______\n", printf("%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12));
-	printf("return: %d", ft_printf("%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12));
+	printf("return: %d\n______\n", printf("%15.10u|\n", 1));
+	printf("return: %d", ft_printf("%15.10u|\n", 1));
+/*
+	printf("\033[1;31m %d |",    printf("1 %% %%%% %%%%%% %c %c %c %c%% 0%c 0%c %c %c %s %s%% %s %s %i %i %i %i %i %i %i %i %i %i %d %d %d %d %d %d %d %d %d %d %u %u %u %u %u %u %u %x %x %x %x %x %x %x %x %x %x %X %X %X %X %X %X %X %X %X %X %p %p %p %p %p %p", '1', -207, 256 + 48, '3', 0, -129, 128, '\0', "hello", "hello3", "", "1", 0, -1, -42, 1, 2, INT_MAX, INT_MAX + 1, INT_MIN, 1000, -1000, 0 , -1, -42, 1, 42, INT_MAX, INT_MAX + 1, INT_MIN, 1000, -1000, 0, -1, 1, 42, UINT_MAX, UINT_MAX + 1, 1000, 0, -1, -42, 1, 42, INT_MAX, INT_MAX + 1, INT_MIN, 1000, -1000, 0, -1, -42, 1, 42, INT_MAX, INT_MAX + 1, INT_MIN, 1000, -1000, (void*)1, (void*)-1, (void*)42, (void*)1000,  (void*)ULONG_MAX, (void*)ULONG_MAX + 1));
+	print("\n");
+printf("\033[1;32m %d\n", ft_printf("1 %% %%%% %%%%%% %c %c %c %c%% 0%c 0%c %c %c %s %s%% %s %s %i %i %i %i %i %i %i %i %i %i %d %d %d %d %d %d %d %d %d %d %u %u %u %u %u %u %u %x %x %x %x %x %x %x %x %x %x %X %X %X %X %X %X %X %X %X %X %p %p %p %p %p %p", '1', -207, 256 + 48, '3', 0, -129, 128, '\0', "hello", "hello3", "", "1", 0, -1, -42, 1, 2, INT_MAX, INT_MAX + 1, INT_MIN, 1000, -1000, 0 , -1, -42, 1, 42, INT_MAX, INT_MAX + 1, INT_MIN, 1000, -1000, 0, -1, 1, 42, UINT_MAX, UINT_MAX + 1, 1000, 0, -1, -42, 1, 42, INT_MAX, INT_MAX + 1, INT_MIN, 1000, -1000, 0, -1, -42, 1, 42, INT_MAX, INT_MAX + 1, INT_MIN, 1000, -1000, (void*)1, (void*)-1, (void*)42, (void*)1000,  (void*)ULONG_MAX, (void*)ULONG_MAX + 1));
+*/
 }

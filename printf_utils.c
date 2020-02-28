@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 10:32:36 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/27 17:16:23 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/28 12:26:03 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	ft_print_hexa(size_t nbr, char whatcase, t_flags *flags)
 	flags->printed += write(1, &b, 1);
 }
 
-void	ft_putnbr_unsigned(unsigned int n)
+void	ft_putnbr_unsigned(unsigned int n, t_flags *flags)
 {
 	char number;
 
 	if (n > 9)
-		ft_putnbr_unsigned(n / 10);
+		ft_putnbr_unsigned(n / 10, flags);
 	number = (n % 10) + '0';
-	write(1, &number, 1);
+	flags->printed += write(1, &number, 1);
 }
 
 void	ft_print_filling(t_flags *flags, int len)

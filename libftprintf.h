@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 13:44:28 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/27 17:21:45 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/27 17:40:48 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			ft_print_u(va_list args, t_flags *flags);
 void			ft_print_x_lower(va_list args, t_flags *flags);
 void			ft_print_x_upper(va_list args, t_flags *flags);
 void			ft_print_hexa(size_t nbr, char whatcase, t_flags *flags);
-void			ft_putnbr_unsigned(unsigned int n);
+void			ft_putnbr_unsigned(unsigned int n, t_flags *flags);
 void			ft_choose_format(va_list args, char a, t_flags *flags);
 void			ft_reset_flags(t_flags *flags);
 void			ft_identify_flags(va_list args, const char *s,
