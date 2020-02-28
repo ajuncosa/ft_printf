@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 16:13:14 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/02/28 16:23:57 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/02/28 16:43:10 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,8 @@ static void	ft_print_number(t_flags *flags, int len, unsigned int n)
 	int	i;
 
 	i = 0;
-	while (i < (flags->precision - len))
-	{
+	while (i++ < (flags->precision - len))
 		flags->printed += write(1, "0", 1);
-		i++;
-	}
 	(n == 0 && flags->precision == 0) ? 0 : ft_putnbr_unsigned(n, flags);
 }
 
@@ -56,7 +53,7 @@ void		ft_print_u(va_list args, t_flags *flags)
 		else
 		{
 			ft_print_filling(flags, true_len);
-			ft_print_number(flags, num_len, n);		
+			ft_print_number(flags, num_len, n);
 		}
 	else
 		ft_print_number(flags, num_len, n);
