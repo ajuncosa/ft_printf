@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/13 13:45:01 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/03/06 18:19:15 by ajuncosa         ###   ########.fr       */
+/*   Created: 2020/03/06 18:19:45 by ajuncosa          #+#    #+#             */
+/*   Updated: 2020/03/06 18:20:11 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libftprintf_bonus.h"
 
 int		ft_printf(const char *s, ...)
 {
@@ -27,9 +27,9 @@ int		ft_printf(const char *s, ...)
 		{
 			ft_reset_flags(&flags);
 			i++;
-			if (ft_strchr("-0123456789.*", s[i]))
+			if (ft_strchr("-0123456789.*# +", s[i]))
 				ft_identify_flags(args, s, i, &flags);
-			while (ft_strchr("-0123456789.*", s[i]))
+			while (ft_strchr("-0123456789.*# +", s[i]))
 				i++;
 			ft_choose_format(args, s[i], &flags);
 		}
