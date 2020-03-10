@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 18:24:02 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/03/09 14:42:48 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/03/10 11:02:20 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void		ft_reset_flags(t_flags *flags)
 	flags->plus = -1;
 }
 
-static void	ft_identify_dash_hash_0(const char *s, int *i, t_flags *flags)
+static void	ft_id_dash_hash_0_plus(const char *s, int *i, t_flags *flags)
 {
-	while (s[*i] == '-' || s[*i] == '0' || s[*i] == '#' || s[*i] == ' ')
+	while (s[*i] == '-' || s[*i] == '0' || s[*i] == '#' || s[*i] == ' ' || s[*i] == '+')
 	{
 		if (s[*i] == '-')
 		{
@@ -60,7 +60,12 @@ static void	ft_identify_dash_hash_0(const char *s, int *i, t_flags *flags)
 			flags->zero = 1;
 		if (s[*i] == '#')
 			flags->hash = 1;
-		if (s[*i] == ' ')
+		if (s[*i] == '+')
+		{
+			flags->plus = 1;
+			flags->space = -1;
+		}
+		if (s[*i] == ' ' && flags->plus == -1)
 			flags->space = 1;
 		*i = *i + 1;
 	}
@@ -69,7 +74,7 @@ static void	ft_identify_dash_hash_0(const char *s, int *i, t_flags *flags)
 void		ft_identify_flags(va_list args, const char *s, int i,
 		t_flags *flags)
 {
-	ft_identify_dash_hash_0(s, &i, flags);
+	ft_id_dash_hash_0_plus(s, &i, flags);
 	if (s[i] == '*')
 	{
 		flags->width = va_arg(args, int);

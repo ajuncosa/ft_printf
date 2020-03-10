@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:40:42 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/03/09 15:07:34 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/03/10 11:52:52 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static int	ft_true_len(int n, t_flags *flags, int num_len)
 		true_len = flags->precision;
 	if (n < 0)
 		true_len++;
+	else if (n >= 0 && (flags->plus == 1 || flags->space == 1)) 
+		true_len++;
 	return (true_len);
 }
 
@@ -63,16 +65,15 @@ void		ft_print_d(va_list args, t_flags *flags)
 	n = va_arg(args, int);
 	num_len = ft_num_len(n, flags);
 	true_len = ft_true_len(n, flags, num_len);
-	if (flags->space == 1 && n > 0)
-	{
+	if (flags->space == 1 && n >= 0)
 		flags->printed += write(1, " ", 1);
-		true_len++;
-	}
-	if (flags->width != -1)
+	if (flags->width > true_len)
 		if (flags->dash == 1)
 		{
+			if (flags->plus == 1 && n >= 0)
+				flags->printed += write(1, "+", 1);
 			ft_print_number(n, flags, num_len);
-			(true_len < flags->width) ? ft_print_filling(flags, true_len) : 0;
+			ft_print_filling(flags, true_len);
 		}
 		else
 		{
@@ -81,9 +82,24 @@ void		ft_print_d(va_list args, t_flags *flags)
 				n = -n;
 				flags->printed += write(1, "-", 1);
 			}
-			(true_len < flags->width) ? ft_print_filling(flags, true_len) : 0;
+			if (flags->plus == 1 && n >= 0 && flags->zero == -1)
+			{
+				ft_print_filling(flags, true_len);
+				flags->printed += write(1, "+", 1);
+			}
+			else if (flags->plus == 1 && n >= 0 && flags->zero == 1)
+			{
+				flags->printed += write(1, "+", 1);
+				ft_print_filling(flags, true_len);
+			}
+			else
+				ft_print_filling(flags, true_len);
 			ft_print_number(n, flags, num_len);
 		}
 	else
+	{
+		if (flags->plus == 1 && n >= 0)
+			flags->printed += write(1, "+", 1);
 		ft_print_number(n, flags, num_len);
+	}
 }
