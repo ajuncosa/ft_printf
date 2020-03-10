@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:40:42 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/03/10 11:52:52 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/03/10 12:42:58 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	ft_true_len(int n, t_flags *flags, int num_len)
 		true_len = flags->precision;
 	if (n < 0)
 		true_len++;
-	else if (n >= 0 && (flags->plus == 1 || flags->space == 1)) 
+	else if (n >= 0 && (flags->plus == 1 || flags->space == 1))
 		true_len++;
 	return (true_len);
 }
@@ -54,6 +54,29 @@ static void	ft_print_number(int n, t_flags *flags, int num_len)
 	while (i++ < (flags->precision - num_len))
 		flags->printed += write(1, "0", 1);
 	ft_putnbr_fd_edit(n, 1, flags);
+}
+
+static void	ft_print_width_nodash(t_flags *flags, int num_len, int true_len,
+		unsigned int n)
+{
+	if (n < 0 && flags->zero == 1)
+	{
+		n = -n;
+		flags->printed += write(1, "-", 1);
+	}
+	if (flags->plus == 1 && n >= 0 && flags->zero == -1)
+	{
+		ft_print_filling(flags, true_len);
+		flags->printed += write(1, "+", 1);
+	}
+	else if (flags->plus == 1 && n >= 0 && flags->zero == 1)
+	{
+		flags->printed += write(1, "+", 1);
+		ft_print_filling(flags, true_len);
+	}
+	else
+		ft_print_filling(flags, true_len);
+	ft_print_number(n, flags, num_len);
 }
 
 void		ft_print_d(va_list args, t_flags *flags)
@@ -76,26 +99,7 @@ void		ft_print_d(va_list args, t_flags *flags)
 			ft_print_filling(flags, true_len);
 		}
 		else
-		{
-			if (n < 0 && flags->zero == 1)
-			{
-				n = -n;
-				flags->printed += write(1, "-", 1);
-			}
-			if (flags->plus == 1 && n >= 0 && flags->zero == -1)
-			{
-				ft_print_filling(flags, true_len);
-				flags->printed += write(1, "+", 1);
-			}
-			else if (flags->plus == 1 && n >= 0 && flags->zero == 1)
-			{
-				flags->printed += write(1, "+", 1);
-				ft_print_filling(flags, true_len);
-			}
-			else
-				ft_print_filling(flags, true_len);
-			ft_print_number(n, flags, num_len);
-		}
+			ft_print_width_nodash(flags, num_len, true_len, n);
 	else
 	{
 		if (flags->plus == 1 && n >= 0)

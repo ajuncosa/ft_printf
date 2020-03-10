@@ -6,7 +6,7 @@
 /*   By: ajuncosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 15:45:43 by ajuncosa          #+#    #+#             */
-/*   Updated: 2020/03/10 12:08:45 by ajuncosa         ###   ########.fr       */
+/*   Updated: 2020/03/10 12:43:45 by ajuncosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int main()
 	ft_printf("\n\033[1;31m%25d", 1234);
 	printf("\033[1;32m\n%25d", 1234);*/
 
-	printf("return: %d\n______\n", printf("%#x|\n", 35));
-	printf("return: %d\n______\n", ft_printf("%#x|\n", 35));
+	printf("return: %d\n______\n", printf("%-10d|\n", 35));
+	printf("return: %d\n______\n", ft_printf("%-10d|\n", 35));
 
 
 //printf("\n______\n");
